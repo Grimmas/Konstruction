@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\..\..\KSP_DEV\GameData\UmbraSpaceIndustries\Konstruction\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -55,6 +55,10 @@
       <HintPath>..\..\..\..\..\KSP_DEV\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\..\..\KSP_DEV\KSP_x64_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\..\KSP_DEV\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
@@ -80,32 +84,68 @@
       <HintPath>..\..\..\..\..\KSP_DEV\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\..\KSP_DEV\KSP_x64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="USITools">
       <HintPath>..\..\..\..\..\KSP_DEV\GameData\000_USITools\USITools.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="USIToolsUI">
+      <HintPath>..\..\..\..\..\KSP_DEV\GameData\000_USITools\USIToolsUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModuleConstructedPart.cs" />
-    <Compile Include="ModuleCounterweight.cs" />
-    <Compile Include="ModuleFlexiLeg.cs" />
-    <Compile Include="ModuleFlexiLegController.cs" />
-    <Compile Include="ModuleGrippyWheel.cs" />
-    <Compile Include="ModuleGroundAnchor.cs" />
-    <Compile Include="ModuleMagneticNode.cs" />
-    <Compile Include="ModulePiston.cs" />
-    <Compile Include="ModuleServo.cs" />
-    <Compile Include="ModuleServoConfig.cs" />
-    <Compile Include="ModuleServoGroup.cs" />
-    <Compile Include="ModuleWeldablePort.cs" />
-    <Compile Include="NodeUtilities.cs" />
-    <Compile Include="ServoData.cs" />
-    <Compile Include="ServoMonitor.cs" />
-    <Compile Include="ServoPosition.cs" />
-    <Compile Include="WeldingData.cs" />
+    <Compile Include="Fabrication\DekonstructorGUI.cs" />
+    <Compile Include="Fabrication\InventoryConstraints.cs" />
+    <Compile Include="Fabrication\KonFabCommonGUI.cs" />
+    <Compile Include="Fabrication\ModuleDekonstructor.cs" />
+    <Compile Include="Fabrication\PartScrollbarData.cs" />
+    <Compile Include="Konstructor\AbstractKonstructorModule.cs" />
+    <Compile Include="Fabrication\FabricationGUI.cs" />
+    <Compile Include="Fabrication\ModuleKonFabricator.cs" />
+    <Compile Include="Konstructor\GroundKonstructorModule.cs" />
+    <Compile Include="Konstructor\OrbitalKonstructorModule.cs" />
+    <Compile Include="ResourceTransfers\ResourceTransferController.cs" />
+    <Compile Include="ResourceTransfers\ResourceTransferScenario.cs" />
+    <Compile Include="ResourceTransfers\ResourceTransferTarget.cs" />
+    <Compile Include="Utilities\PartUtilities.cs" />
+    <Compile Include="Misc\ModuleConstructedPart.cs" />
+    <Compile Include="Misc\ModuleCounterweight.cs" />
+    <Compile Include="Robotics\ModuleFlexiLeg.cs" />
+    <Compile Include="Robotics\ModuleFlexiLegController.cs" />
+    <Compile Include="Misc\ModuleGrippyWheel.cs" />
+    <Compile Include="Misc\ModuleGroundAnchor.cs" />
+    <Compile Include="EVA\ModuleKonstructionForeman.cs" />
+    <Compile Include="EVA\ModuleKonstructionHelper.cs" />
+    <Compile Include="Misc\ModuleMagneticNode.cs" />
+    <Compile Include="Robotics\ModulePiston.cs" />
+    <Compile Include="Robotics\ModuleServo.cs" />
+    <Compile Include="Robotics\ModuleServoConfig.cs" />
+    <Compile Include="Robotics\ModuleServoGroup.cs" />
+    <Compile Include="Settings\KonstructionConfig.cs" />
+    <Compile Include="Settings\KonstructionCostResource.cs" />
+    <Compile Include="Settings\KonstructionModuleResource.cs" />
+    <Compile Include="Settings\KonstructionPersistance.cs" />
+    <Compile Include="Settings\KonstructionScenario.cs" />
+    <Compile Include="Welding\ModuleWeldablePort.cs" />
+    <Compile Include="Welding\NodeUtilities.cs" />
+    <Compile Include="Robotics\ServoData.cs" />
+    <Compile Include="Robotics\ServoMonitor.cs" />
+    <Compile Include="Robotics\ServoPosition.cs" />
+    <Compile Include="Welding\WeldingData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\KonstructionUI\KonstructionUI.csproj">
+      <Project>{d487f008-632d-41c3-8827-7711eae23d15}</Project>
+      <Name>KonstructionUI</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
